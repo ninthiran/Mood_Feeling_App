@@ -14,10 +14,22 @@ class CheckInFeature extends Component {
     pageTwoEnable: false
   };
 
+  handleChange = event => {
+    this.setState({ moodRangeValue: event.target.value });
+  };
+
   render() {
     return (
-      <div>
-        <MoodRangeSlider />
+      <div className="component_container">
+        {this.state.pageTwoEnable ? null : (
+          <MoodRangeSlider
+            sliderValue={this.state.moodRangeValue}
+            onhandleChange={this.handleChange}
+          />
+        )}
+        <div className="btn btn-block btn-light" onClick={this.togglePage}>
+          {!this.state.pageTwoEnable ? "Next" : "Back"}
+        </div>
       </div>
     );
   }
