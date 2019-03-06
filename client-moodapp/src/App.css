@@ -99,3 +99,16 @@ div {
     bottom: 0px;
     border-radius: 50%;
 }
+
+#feelingsbtn .btn {
+    width: 48%;
+    margin: 0.2rem;
+}
+
+.btn-post {
+    margin-top: 4%;
+}
+
+#feelingsbtn {
+    padding: 2em 0;
+}
