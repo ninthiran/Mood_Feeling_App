@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import MoodRangeSlider from "./moodRange";
+import FeelingButtons from "./feelingButtons";
 
 class CheckInFeature extends Component {
   state = {
@@ -22,10 +23,30 @@ class CheckInFeature extends Component {
     this.setState({ pageTwoEnable: !this.state.pageTwoEnable });
   };
 
+  feelingsSelection = event => {
+    const innerText = event.target.innerText;
+    const id = event.target.id;
+
+    this.setState(prevState => ({
+      FeelingArray: prevState.FeelingArray.map(obj =>
+        obj.text == innerText
+          ? Object.assign(obj, {
+              isActive: !this.state.FeelingArray[id].isActive
+            })
+          : obj
+      )
+    }));
+  };
+
   render() {
     return (
       <div className="component_container">
-        {this.state.pageTwoEnable ? null : (
+        {this.state.pageTwoEnable ? (
+          <FeelingButtons
+            feelings={this.state.FeelingArray}
+            onFeelingsSelected={this.feelingsSelection}
+          />
+        ) : (
           <MoodRangeSlider
             sliderValue={this.state.moodRangeValue}
             onhandleChange={this.handleChange}
