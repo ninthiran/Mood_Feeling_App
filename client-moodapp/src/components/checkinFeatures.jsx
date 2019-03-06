@@ -18,6 +18,10 @@ class CheckInFeature extends Component {
     this.setState({ moodRangeValue: event.target.value });
   };
 
+  togglePage = () => {
+    this.setState({ pageTwoEnable: !this.state.pageTwoEnable });
+  };
+
   render() {
     return (
       <div className="component_container">
