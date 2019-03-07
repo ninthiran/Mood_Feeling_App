@@ -6,12 +6,12 @@ const FeelingButtons = props => {
     <div id="feelingsbtn">
       {props.feelings.map((x, y) => (
         <button
-          className={x.isActive == true ? btnClass + " active" : btnClass}
+          className={x.isActive === true ? btnClass + " active" : btnClass}
           onClick={props.onFeelingsSelected}
           key={y}
           id={y}
         >
-          {x.isActive} {x.text}
+          {x.text}
         </button>
       ))}
     </div>
