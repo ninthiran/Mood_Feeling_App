@@ -1,13 +1,10 @@
 import React, { Fragment } from "react";
+import EmojiFace from "./emojiFace";
 
 const MoodRangeSlider = props => {
   return (
     <Fragment>
-      <div id="face">
-        <div id="mouth-box" className={`mood_${props.sliderValue}`}>
-          <div id="mouth" className={`mood_${props.sliderValue}`} />
-        </div>
-      </div>
+      <EmojiFace sliderValue={props.sliderValue} />
       <input
         className="custom-range"
         type="range"
