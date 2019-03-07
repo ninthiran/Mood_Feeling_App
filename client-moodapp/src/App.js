@@ -4,8 +4,6 @@ import "./App.css";
 import CheckInFeature from "./components/checkinFeatures";
 import InsightsContainer from "./components/insightsContainer";
 
-let postSucess = false;
-
 class App extends Component {
   state = {
     postSucess: false
