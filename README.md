@@ -10,6 +10,10 @@ Once required dependencies are sucessfully installed, Run the server.
 
 To Run server  `npm start`
 
+Server will run in the localhost of port 3001. 
+
+Server URL `http://localhost:3001/users`
+
 
 ## Client (React)
 
@@ -20,3 +24,5 @@ To install dependencies  `npm install`
 Once required dependencies are sucessfully installed, Run the server.
 
 To Run server  `npm start`
+
+Client side will run viewed under the URL `http://localhost:3000/`
