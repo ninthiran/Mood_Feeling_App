@@ -5,7 +5,7 @@ const UserEntryList = props => {
   return (
     <Fragment>
       <div className="col-md-auto">
-        <p>
+        <p style={{ "font-size": "1.5em" }}>
           {props.date[0]} <br />
           {props.date[1]}
         </p>
