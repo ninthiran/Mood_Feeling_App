@@ -1,7 +1,6 @@
 import React, { Fragment } from "react";
 
 const EmojiFace = props => {
-  console.log(props);
   return (
     <Fragment>
       <div id="face">
