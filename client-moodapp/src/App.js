@@ -20,7 +20,7 @@ class App extends Component {
       <div className="App">
         <div className="container">
           <div className="main_container">
-            {this.state.postSucess ? (
+            {!this.state.postSucess ? (
               <CheckInFeature onComplete={this.sucessAction} />
             ) : (
               <InsightsContainer />
