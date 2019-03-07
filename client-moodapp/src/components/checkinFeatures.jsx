@@ -15,7 +15,8 @@ class CheckInFeature extends Component {
         { text: "happy", isActive: false }
       ],
       comments: "",
-      pageTwoEnable: false
+      isPageTwoEnable: false,
+      postError: false
     };
   }
 
@@ -24,7 +25,7 @@ class CheckInFeature extends Component {
   };
 
   togglePage = () => {
-    this.setState({ pageTwoEnable: !this.state.pageTwoEnable });
+    this.setState({ isPageTwoEnable: !this.state.isPageTwoEnable });
   };
 
   feelingsSelection = event => {
@@ -48,14 +49,17 @@ class CheckInFeature extends Component {
   };
 
   postAction = () => {
-    api.postDataList(this.state);
-    this.props.onComplete();
+    api.postDataList(this.state).then(res => {
+      res.status === 200
+        ? this.props.onComplete()
+        : this.setState({ postError: !this.state.postError });
+    });
   };
 
   render() {
     return (
       <div className="component_container">
-        {this.state.pageTwoEnable ? (
+        {this.state.isPageTwoEnable ? (
           <div>
             <FeelingButtons
               feelings={this.state.FeelingArray}
@@ -84,8 +88,13 @@ class CheckInFeature extends Component {
           />
         )}
         <div className="btn btn-block btn-light" onClick={this.togglePage}>
-          {!this.state.pageTwoEnable ? "Next" : "Back"}
+          {!this.state.isPageTwoEnable ? "Next" : "Back"}
         </div>
+        {this.state.postError ? (
+          <div class="alert alert-danger">
+            <strong>Error!</strong>
+          </div>
+        ) : null}
       </div>
     );
   }
