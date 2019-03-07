@@ -10,7 +10,7 @@ app.use(bodyParser.json());
 var db = require("./database/db");
 
 app.get("/users", (req, res) => {
-  const select = "SELECT * FROM MoodFeatures";
+  const select = "select * from MoodFeatures order by time desc";
   const params = [];
   db.all(select, params, (err, rows) => {
     if (err) {
@@ -41,7 +41,7 @@ app.post("/post", (req, res) => {
     if (err) {
       return console.error(err.message);
     }
-    console.log(`Rows inserted ${this.changes}`);
+    console.log(`Rows inserted`);
   });
   return res.send("Received a POST HTTP method");
 });
